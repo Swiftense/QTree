@@ -15,6 +15,8 @@ int main()
         /* insert qtree */
         tree = qtr_create();
 
+        printf("Running Performance tests on tree operations with 10 Million Nodes:\n");
+
         gettimeofday(&start, NULL);
         for(long long l = 0;l < 10000000; l++)
         {
@@ -23,7 +25,7 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("QTree insert 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *QTree insert: %lld ms\n", elapsed/1000);
 
         /* insert Red Black Tree */
         map = new std::map<long long, long long>();
@@ -36,7 +38,29 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("Red Black Tree insert 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *Red Black Tree insert: %lld ms\n", elapsed/1000);
+
+        /* search qtree */
+        gettimeofday(&start, NULL);
+        for(long long l = 0;l < 10000000; l++)
+        {
+            qtr_get(tree, l);
+        }
+        gettimeofday(&end, NULL);
+
+        elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
+        printf(" *QTree search: %lld ms\n", elapsed/1000);
+
+        /* search Red Black Tree */
+        gettimeofday(&start, NULL);
+        for(long long l = 0;l < 10000000; l++)
+        {
+            map->at(l);
+        }
+        gettimeofday(&end, NULL);
+
+        elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
+        printf(" *Red Black Tree search: %lld ms\n", elapsed/1000);
 
         /* clone qtree */
         gettimeofday(&start, NULL);
@@ -44,7 +68,7 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("QTree clone 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *QTree clone: %lld ms\n", elapsed/1000);
 
         /* clone Red Black Tree */
         gettimeofday(&start, NULL);
@@ -52,7 +76,7 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("Red Black Tree clone 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *Red Black Tree clone: %lld ms\n", elapsed/1000);
 
         /* delete qtree */
         gettimeofday(&start, NULL);
@@ -63,7 +87,7 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("QTree delete 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *QTree delete: %lld ms\n", elapsed/1000);
 
         /* remove qtree */
         gettimeofday(&start, NULL);
@@ -74,7 +98,7 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("QTree remove 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *QTree remove: %lld ms\n", elapsed/1000);
 
 
         /* delete Red Black Tree */
@@ -86,7 +110,8 @@ int main()
         gettimeofday(&end, NULL);
 
         elapsed = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-        printf("Red Black Tree delete 10M nodes: %lld ms\n", elapsed/1000);
+        printf(" *Red Black Tree delete: %lld ms\n", elapsed/1000);
+        printf("Done.\n");
         return 0;
     #elif defined(preview)
         QTree* tree = qtr_create();
