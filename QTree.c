@@ -62,7 +62,7 @@ void qtr_set(QTree* tree, long long key, void* value)
                 return;
             }
             tree = tree->rn;
-            goto _ch;
+            goto _ch; /* could also be done using a for loop */
         }
         if(tree->ln == null) /* if right node is null -> set right node to insert node */
         {
