@@ -1,2 +1,2 @@
-# algorithm
-Tree algorithm that is used by swiftense
+<h1>QTree</h1>
+<h3>Swift search algorithm used by swiftense.</h3>
