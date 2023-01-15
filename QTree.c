@@ -44,6 +44,7 @@ void qtr_set(QTree* tree, long long key, void* value)
     {
         tree->key = key;
         tree->value = value;
+        tree->free = 0;
         return;  
     }
     else
