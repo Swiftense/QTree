@@ -1,5 +1,5 @@
 <h1>Swiftense - QTree</h1>
-<h3>Swift search algorithm used by swiftense.</h3>
+<p>Swift search algorithm used by swiftense.</p>
 <h2>What is this?</h2>
 <p>A Tree data structure in which elements are orderd, that both searching and inserting elements can happen at equal speeds.</p>
 <h2>How does it work?</h2>
@@ -51,7 +51,7 @@ def get(tree, key):
     <li>Slow deletions. The Searchalgorithm is dependent of the subnodes of a node, so when fully deleting a node out of the tree, the subtree of the deleted node has to be fully rebuild. But the simple workaround to this problem is to just mark the node as deleted and reuse it when its possible.</li>
 </ul>
 <h2>Example</h2>
-<p>Get started by clone the repo:</p>
+<p>Get started by cloning the repo:</p>
 
 ```bash
 git clone https://github.com/swiftense/QTree
