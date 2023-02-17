@@ -70,3 +70,6 @@ chmod +x qtree.sh
 ```bash
 ./qtree.sh performance
 ```
+
+<h2>Strings</h2>
+<p>Allthough the Example only uses a QTree with integral keys, the algorithm can be easily changed to suppport strings both as key and as value, an simple implementation of this can be found in the <strong>SQTree.c</strong> source file.</p>
