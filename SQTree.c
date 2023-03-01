@@ -300,7 +300,7 @@ char*sqtr_pop(SQTree* tree, char* key)
     }
 }
 
-SQNode*sqtr_popl(SQTree* tree)
+extern inline SQNode*sqtr_popl(SQTree* tree)
 {
     SQNode*_tree = tree;
     SQNode*previous = tree;
@@ -334,7 +334,13 @@ SQNode*sqtr_popl(SQTree* tree)
     }
 }
 
-debug void sqtr_print(SQTree*tree)
+extern inline void sqtr_free(SQTree*tree)
+{
+    for(;!sqtr_empty(tree);free(sqtr_popl(tree)));
+    free(tree);
+}
+
+void sqtr_print(SQTree*tree)
 {
     /* get window size */
     struct winsize w;
@@ -350,7 +356,7 @@ debug void sqtr_print(SQTree*tree)
     printf("\033[%d;%dH", w.ws_row, 0);
 }
 
-debug void sqtr_printn(SQTree*tree, SQNode*node, int col, int row)
+void sqtr_printn(SQTree*tree, SQNode*node, int col, int row)
 {
     if (node == null) {
         return; /* return at end of branch*/
@@ -387,7 +393,7 @@ debug void sqtr_printn(SQTree*tree, SQNode*node, int col, int row)
     sqtr_printn(tree, node->ln, col - 3, row + 2);
 }
 
-debug void sqtr_printbin(SQTree*tree)
+void sqtr_printbin(SQTree*tree)
 {
     /* get window size */
     struct winsize w;
@@ -403,7 +409,7 @@ debug void sqtr_printbin(SQTree*tree)
     printf("\033[%d;%dH", w.ws_row, 0);
 }
 
-debug void sqtr_printnbin(SQTree*tree, SQNode*node, int col, int row, char val)
+void sqtr_printnbin(SQTree*tree, SQNode*node, int col, int row, char val)
 {
     if (node == null) {
         return; /* return at end of branch*/
