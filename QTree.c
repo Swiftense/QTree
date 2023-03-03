@@ -3,6 +3,7 @@
 QTree* qtr_create()
 {
     QTree* res = (QTree*)malloc(sizeof(QTree));
+    res->key = null;
     return res;
 }
 
