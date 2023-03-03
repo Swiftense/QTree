@@ -3,6 +3,7 @@
 SQTree* sqtr_create()
 {
     SQTree* res = (SQTree*)malloc(sizeof(SQTree));
+    res->key = null;
     return res;
 }
 
