@@ -12,10 +12,10 @@
     #include <stdio.h>
     #include <string.h>
 
-    #include "../Utils/SString.h"
-    #include "../Utils/inline.h"
-    #include "../Utils/debug.h"
-    #include "../Utils/null.h"
+    #include "SString.h"
+    #include "inline.h"
+    #include "debug.h"
+    #include "null.h"
 
 
     typedef struct _qNode SQNode;
@@ -25,7 +25,7 @@
     /* creates new tree */
     SQTree* sqtr_create();
     /* check if one key is equal to another*/
-    STATIC_I int sqtr_keyeqval(char*key1, char*key2);
+    //STATIC_I int sqtr_keyeqval(char*key1, char*key2);
     /* check if tree is empty */
     int sqtr_empty(SQTree*tree);
     /* recursively clone Tree */
@@ -41,10 +41,7 @@
     void sqtr_set(SQTree* tree, char* key, char* value);
     /* returns element that belongs to <key> */
     void* sqtr_get(SQTree* tree, char* key);
-    extern inline int sqtr_contains(SQTree *tree, char *key)
-    {
-        return sqtr_get(tree, key) == null;
-    }
+    #define sqtr_contains(tree, key) sqtr_get(tree, key) == null;
     /* completely deletes node out of tree, also cleans up tree structure, very slow, since every subnode has to be reinserted */
     void sqtr_delete(SQTree* tree, char* key);
     /* marks node with <key> as free returns value of node that belongs to <key> */
@@ -54,7 +51,7 @@
     /* completely deletes whole tree */
     void sqtr_free(SQTree *tree);
     /* used to insert node at specific point */
-    STATIC_I void _sqtr_insertn(SQNode* start, unsigned int startb, SQNode* insert);
+    //STATIC_I void _sqtr_insertn(SQNode* start, unsigned int startb, SQNode* insert);
     /* prints entire tree */
     debug void sqtr_print(SQTree*tree);
     /* prints node at row|col*/
