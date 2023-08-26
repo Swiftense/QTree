@@ -17,7 +17,7 @@ SQTree* sqtr_clone(SQTree* tree)
     return res;
 }
 
-STATIC_I int sqtr_keyeqval(char*key1, char*key2)
+static inline int sqtr_keyeqval(char*key1, char*key2)
 {
     for(;*key1!=null; key1++, key2++)
     {
@@ -199,7 +199,7 @@ void* sqtr_get(SQTree* tree, char* key)
     /* statement not needed but required to prevent c++ warning */ return null;
 }
 
-STATIC_I void _sqtr_insertn(SQNode* start, unsigned int startb, SQNode* insert)
+static inline void _sqtr_insertn(SQNode* start, unsigned int startb, SQNode* insert)
 {
     /* recursively insert subnodes */
     if(insert->rn != null)
