@@ -51,14 +51,6 @@ def get(tree, key):
     <li>Slow deletions. The Searchalgorithm is dependent of the subnodes of a node, so when fully deleting a node out of the tree, the subtree of the deleted node has to be fully rebuild. But the simple workaround to this problem is to just mark the node as deleted and reuse it when its possible.</li>
 </ul>
 <h2>Example</h2>
-<p>Get started by cloning the repo:</p>
-
-```bash
-git clone https://github.com/swiftense/QTree
-cd QTree
-chmod +x qtree.sh
-```
-
 <p>To get an preview of the Tree structure and see how this algorithm works, execute the Bash Script with the preview argument: </p>
 
 ```bash
